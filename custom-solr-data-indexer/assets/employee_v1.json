@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "version": 1,
+    "firstName": "Homer",
+    "lastName": "Simpson",
+    "age": 40,
+    "departmentId": 1
+  },
+  {
+    "id": 2,
+    "version": 1,
+    "firstName": "Marge",
+    "lastName": "Simpson",
+    "age": 35,
+    "departmentId": 1
+  },
+  {
+    "id": 3,
+    "version": 1,
+    "firstName": "Bart",
+    "lastName": "Simpson",
+    "age": 14,
+    "departmentId": 2
+  },
+  {
+    "id": 4,
+    "version": 1,
+    "firstName": "Lisa",
+    "lastName": "Simpson",
+    "age": 12,
+    "departmentId": 2
+  },
+  {
+    "id": 5,
+    "version": 1,
+    "firstName": "Meg",
+    "lastName": "Simpson",
+    "age": 5,
+    "departmentId": 2
+  }
+]
