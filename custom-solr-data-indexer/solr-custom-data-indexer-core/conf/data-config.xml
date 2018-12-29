@@ -1,0 +1,28 @@
+<dataConfig>
+	
+ 	<document>
+
+ 		<entity
+			name="employee"
+	 		pk="id"
+	 		query="true"
+	 		deltaQuery="true"
+	 		deltaImportQuery="true"
+	 		deletedPkQuery="true"
+	 		processor="com.github.schmittjoaopedro.EmployeeProcessor" >
+	 		<entity 
+	 			name="company"
+	 			query="true"
+				processor="com.github.schmittjoaopedro.CompanyProcessor">
+	 		</entity>
+			<field name="id" column="id" />
+	 		<field name="firstName" column="firstName" />
+	 		<field name="lastName" column="lastName" />
+            <field name="age" column="age" />
+            <field name="companyId" column="companyId" />
+            <field name="companyName" column="companyName" />
+ 		</entity>
+
+ 	</document>
+
+</dataConfig>
