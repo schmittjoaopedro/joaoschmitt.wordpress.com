@@ -1,0 +1,10 @@
+[
+  {
+    "id": 2,
+    "version": 1,
+    "firstName": "Marge",
+    "lastName": "Simpson",
+    "age": 35,
+    "departmentId": 1
+  }
+]

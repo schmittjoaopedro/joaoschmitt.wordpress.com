@@ -1,0 +1,18 @@
+[
+  {
+    "id": 4,
+    "version": 2,
+    "firstName": "Lisa",
+    "lastName": "Simpson",
+    "age": 14,
+    "departmentId": 2
+  },
+  {
+    "id": 6,
+    "version": 2,
+    "firstName": "Milhouse",
+    "lastName": "Simpson",
+    "age": 16,
+    "departmentId": 2
+  }
+]
