@@ -5,6 +5,6 @@
     "firstName": "Marge",
     "lastName": "Simpson",
     "age": 35,
-    "departmentId": 1
+    "companyId": 1
   }
 ]

@@ -5,7 +5,7 @@
     "firstName": "Homer",
     "lastName": "Simpson",
     "age": 40,
-    "departmentId": 1
+    "companyId": 1
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "firstName": "Marge",
     "lastName": "Simpson",
     "age": 35,
-    "departmentId": 1
+    "companyId": 1
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "firstName": "Bart",
     "lastName": "Simpson",
     "age": 14,
-    "departmentId": 2
+    "companyId": 2
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "firstName": "Lisa",
     "lastName": "Simpson",
     "age": 12,
-    "departmentId": 2
+    "companyId": 2
   },
   {
     "id": 5,
@@ -37,6 +37,6 @@
     "firstName": "Meg",
     "lastName": "Simpson",
     "age": 5,
-    "departmentId": 2
+    "companyId": 2
   }
 ]
