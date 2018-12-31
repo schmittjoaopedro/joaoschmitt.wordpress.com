@@ -28,10 +28,12 @@ public class CompanyService {
         JsonObject jsonObject;
         List<Map<String, Object>> companyMap = null;
         JsonParser jsonParser = new JsonParser();
+        // Load from GIT rep the JSON data
         value = HttpUtil.getRequest("company_v" + version + "_full");
         jsonReader = new JsonReader(new StringReader(value));
         object = jsonParser.parse(jsonReader);
         jsonArray = (JsonArray) object;
+        // Convert the JSON object to Map structure (use by SOLR)
         for (int i = 0; i < jsonArray.size(); i++) {
             jsonObject = jsonArray.get(i).getAsJsonObject();
             if (jsonObject.get("id").getAsString().equals(id)) {

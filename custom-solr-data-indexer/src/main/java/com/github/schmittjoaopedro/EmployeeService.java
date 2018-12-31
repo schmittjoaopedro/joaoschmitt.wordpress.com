@@ -39,11 +39,12 @@ public class EmployeeService {
         return employeeMap;
     }
 
+    // Return full data about a single employee
     public List<Map<String, Object>> getEmployee(String id, String version) {
         String file = "employee_v" + version + "_full";
         List<Map<String, Object>> objects = getJsonObject(file);
         List<Map<String, Object>> objectFiltered = new ArrayList<>();
-        for (Map<String, Object> object : objects) {
+        for (Map<String, Object> object : objects) { // Filter the equivalent record from the database result (in memory)
             if (String.valueOf(object.get("id")).equals(id)) {
                 objectFiltered.add(object);
                 break;
@@ -60,10 +61,11 @@ public class EmployeeService {
         JsonObject jsonObject;
         List<Map<String, Object>> employeeMap = new ArrayList<>();
         JsonParser jsonParser = new JsonParser();
-        value = HttpUtil.getRequest(file);
+        value = HttpUtil.getRequest(file); // Get from GIT repo
         jsonReader = new JsonReader(new StringReader(value));
         object = jsonParser.parse(jsonReader);
         jsonArray = (JsonArray) object;
+        // Convert from JSON to Map structure (used by SOLR)
         for (int i = 0; i < jsonArray.size(); i++) {
             jsonObject = jsonArray.get(i).getAsJsonObject();
             Map<String, Object> company = new HashMap<>();

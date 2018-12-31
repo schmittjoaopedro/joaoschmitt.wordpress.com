@@ -20,6 +20,8 @@ public class CompanyProcessor extends EntityProcessorBase {
         companyService = new CompanyService(context.getSolrCore().getName());
     }
 
+    // For each employee this method is called as a sub-query to load
+    // the company data associated with the employee.
     @Override
     public Map<String, Object> nextRow() {
         if (rowIterator == null) {
@@ -29,6 +31,7 @@ public class CompanyProcessor extends EntityProcessorBase {
     }
 
     private void initCompanyValues() {
+        // Based on the employee values load the company information.
         String id = String.valueOf(context.getVariableResolver().resolve("employee.companyId"));
         String version = String.valueOf(context.getVariableResolver().resolve("employee.version"));
         if (isValidParam(id) && isValidParam(version)) {
