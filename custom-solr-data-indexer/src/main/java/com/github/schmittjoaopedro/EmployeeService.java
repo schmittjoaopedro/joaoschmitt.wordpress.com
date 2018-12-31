@@ -4,10 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
-import org.eclipse.jetty.client.HttpClient;
-import org.eclipse.jetty.client.api.ContentResponse;
 import org.joda.time.LocalDateTime;
-import org.restlet.data.MediaType;
 
 import java.io.StringReader;
 import java.util.*;
@@ -16,8 +13,6 @@ public class EmployeeService {
 
     private String solrCoreName;
 
-    private static final String REPO_URL = "https://raw.githubusercontent.com/schmittjoaopedro/joaoschmitt.wordpress.com/master/custom-solr-data-indexer/assets/employee_v#VERSION.json";
-
     public EmployeeService(String solrCoreName) {
         super();
         this.solrCoreName = solrCoreName;
@@ -25,27 +20,28 @@ public class EmployeeService {
 
     public List<Map<String, Object>> getEmployeesAfterDate(Date startDate) {
         // For this sample the startDate will not be considered, but in many real world scenarios this information is important
-        int currentVersion = 1; // Full DUMP
-        List<Map<String, Object>> employeeMap = getJsonObject(currentVersion);
+        String file = "employee_v1_full";// Full DUMP
+        List<Map<String, Object>> employeeMap = getJsonObject(file);
         return employeeMap;
     }
 
     public List<Map<String, Object>> getDeltaEmployees(LocalDateTime startDate) {
         // For this sample the startDate will not be considered, but in many real world scenarios this information is important
-        int currentVersion = 2; // Modified and created delta records
-        List<Map<String, Object>> employeeMap = getJsonObject(currentVersion);
+        String file = "employee_v2_modified";// Modified and created delta records
+        List<Map<String, Object>> employeeMap = getJsonObject(file);
         return employeeMap;
     }
 
     public List<Map<String, Object>> getDeleteEmployees(LocalDateTime startDate) {
         // For this sample the startDate will not be considered, but in many real world scenarios this information is important
-        int currentVersion = 3; // Records to delete
-        List<Map<String, Object>> employeeMap = getJsonObject(currentVersion);
+        String file = "employee_v2_removed"; // Records to delete
+        List<Map<String, Object>> employeeMap = getJsonObject(file);
         return employeeMap;
     }
 
     public List<Map<String, Object>> getEmployee(String id, String version) {
-        List<Map<String, Object>> objects = getJsonObject(Integer.valueOf(version));
+        String file = "employee_v" + version + "_full";
+        List<Map<String, Object>> objects = getJsonObject(file);
         List<Map<String, Object>> objectFiltered = new ArrayList<>();
         for (Map<String, Object> object : objects) {
             if (String.valueOf(object.get("id")).equals(id)) {
@@ -56,7 +52,7 @@ public class EmployeeService {
         return objectFiltered;
     }
 
-    private List<Map<String, Object>> getJsonObject(int currentVersion) {
+    private List<Map<String, Object>> getJsonObject(String file) {
         String value;
         JsonReader jsonReader;
         Object object;
@@ -64,7 +60,7 @@ public class EmployeeService {
         JsonObject jsonObject;
         List<Map<String, Object>> employeeMap = new ArrayList<>();
         JsonParser jsonParser = new JsonParser();
-        value = HttpUtil.getRequest(getEndpoint(currentVersion));
+        value = HttpUtil.getRequest(file);
         jsonReader = new JsonReader(new StringReader(value));
         object = jsonParser.parse(jsonReader);
         jsonArray = (JsonArray) object;
@@ -80,9 +76,5 @@ public class EmployeeService {
             employeeMap.add(company);
         }
         return employeeMap;
-    }
-
-    private String getEndpoint(int version) {
-        return REPO_URL.replaceAll("#VERSION", String.valueOf(version));
     }
 }

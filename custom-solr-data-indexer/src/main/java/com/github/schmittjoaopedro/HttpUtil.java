@@ -6,13 +6,17 @@ import org.eclipse.jetty.util.ssl.SslContextFactory;
 
 public class HttpUtil {
 
-    public static String getRequest(final String url) {
+    private static final String REPO_URL = "https://raw.githubusercontent.com/schmittjoaopedro/joaoschmitt.wordpress.com/master/custom-solr-data-indexer/assets/#FILE.json";
+
+    public static String getRequest(final String file) {
         HttpClient httpClient = null;
+        String url;
         SslContextFactory sslContextFactory = null;
         try {
             sslContextFactory = new SslContextFactory();
             httpClient = new HttpClient(sslContextFactory);
             httpClient.start();
+            url = REPO_URL.replaceAll("#FILE", file);
             ContentResponse response = httpClient.GET(url);
             return response.getContentAsString();
         } catch (Exception ex) {

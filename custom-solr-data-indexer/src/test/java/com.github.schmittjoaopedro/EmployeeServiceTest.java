@@ -25,7 +25,7 @@ public class EmployeeServiceTest {
     @Test
     public void testEmployeeServiceModified() {
         List<Map<String, Object>> fullDump = employeeService.getDeltaEmployees(null);
-        Assert.assertEquals(fullDump.size(), 5, 0);
+        Assert.assertEquals(fullDump.size(), 2, 0);
     }
 
     @Test

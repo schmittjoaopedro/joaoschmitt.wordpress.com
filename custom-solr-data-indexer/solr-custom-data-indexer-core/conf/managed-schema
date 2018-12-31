@@ -114,8 +114,9 @@
     <field name="firstName" type="string" indexed="true" stored="true" multiValued="false" />
     <field name="lastName" type="string" indexed="true" stored="true" multiValued="false" />
     <field name="age" type="pint" indexed="true" stored="true" multiValued="false" />
-    <field name="departmentId" type="pint" indexed="true" stored="true" multiValued="false" />
-    <field name="departmentName" type="string" indexed="true" stored="true" multiValued="false" />
+    <field name="companyId" type="pint" indexed="true" stored="true" multiValued="false" />
+    <field name="companyVersion" type="pint" indexed="true" stored="true" multiValued="false" />
+    <field name="companyName" type="string" indexed="true" stored="true" multiValued="false" />
 
     <!-- docValues are enabled by default for long type so we don't need to index the version field  -->
     <field name="_version_" type="plong" indexed="false" stored="false"/>

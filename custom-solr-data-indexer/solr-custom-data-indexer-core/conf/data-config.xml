@@ -20,6 +20,7 @@
 	 		<field name="lastName" column="lastName" />
             <field name="age" column="age" />
             <field name="companyId" column="companyId" />
+            <field name="companyVersion" column="companyVersion" />
             <field name="companyName" column="companyName" />
  		</entity>
 
