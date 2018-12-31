@@ -1,0 +1,18 @@
+[
+  {
+    "id": 4,
+    "version": 2,
+    "firstName": "Lisa",
+    "lastName": "Simpson",
+    "age": 14,
+    "companyId": 2
+  },
+  {
+    "id": 6,
+    "version": 2,
+    "firstName": "Milhouse",
+    "lastName": "Simpson",
+    "age": 16,
+    "companyId": 2
+  }
+]
