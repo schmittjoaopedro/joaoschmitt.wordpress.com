@@ -7,6 +7,11 @@
   {
     "id": 2,
     "version": 1,
+    "name": "XPTO"
+  },
+  {
+    "id": 3,
+    "version": 1,
     "name": "ZYPT"
   }
 ]
